@@ -92,12 +92,42 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def definiteMovement(self):
+        if self.can_move_right() is True:
+            self.move_right()
+            return self.sort()
+        elif self.can_move_left is True:
+            self.move_left()
+            return self.sort()
+        
+
     def sort(self):
         """
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        if self.compare_item() is None:
+            self.swap_item()
+            self.definiteMovement()
+        elif self.compare_item() == 1:
+            self.definiteMovement()
+        elif self.compare_item == -1:
+            self.swap_item()
+            self.definiteMovement() 
+        
+
+
+        #     if self.can_move_right() is True:
+        #         self.move_right()
+        # else:
+        #     if self.can_move_right() is True:
+        #         self.move_right()
+        #         if self.compare_item() == 1:
+        #             if self.can_move_right is True:
+        #                 self.move_right()
+        #         else:
+        #             self.swap_item()
+
 
 
 if __name__ == "__main__":
